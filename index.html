@@ -69,6 +69,12 @@
             box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
         }
 
+        .btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .badge {
             display: flex;
             align-items: center;
@@ -286,6 +292,149 @@
             font-size: 1rem;
         }
 
+        /* --- QUOTE FORM SECTION --- */
+        .quote-section {
+            padding: 100px 0;
+            background-color: #ffffff;
+        }
+
+        .quote-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .quote-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .quote-header h2 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 16px;
+        }
+
+        .quote-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--accent-orange);
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .form-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .form-group.error .form-error {
+            display: block;
+        }
+
+        .form-submit {
+            margin-top: 36px;
+            text-align: center;
+        }
+
+        .form-submit .btn {
+            font-size: 1.05rem;
+            padding: 16px 48px;
+            width: 100%;
+        }
+
+        .success-message {
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            display: none;
+            border-left: 4px solid #16a34a;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 900px) {
             .promise-grid {
@@ -295,6 +444,32 @@
 
             .image-placeholder {
                 height: 300px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-badges {
+                max-width: 100%;
+            }
+
+            .btn {
+                padding: 12px 20px;
             }
         }
     </style>
@@ -343,8 +518,8 @@
             <div class="promise-text">
                 <h2 class="section-title">The Total Building Promise</h2>
                 <p>Most contractors give you a ballpark estimate and a two-month delay. We don't operate that way.</p>
-                <p>At Total Building Solutions, we pour foundations that don't crack and erect pre-engineered metal buildings that actually pencil out for your budget. We handle residential slabs, heavy commercial foundations, and complete turnkey metal building packages from estimation to final erection.</p>
-                <p>Because we're a tight, local operation, you aren't dealing with a revolving door of salesmen. You get a single point of contact, transparent hard-numbers, and a crew that shows up when they say they will.</p>
+                <p>At Total Building Solutions, we pour foundations that don't crack and erect pre-engineered metal buildings that actually pencil out for your budget. We handle residential slabs, heavy-duty flatwork, and complete structural steel erection.</p>
+                <p>Because we're a tight, local operation, you aren't dealing with a revolving door of salesmen. You get a single point of contact, transparent hard-numbers, and a crew that shows up on time, every time.</p>
                 
                 <div class="author-box">
                     <div class="author-name">Sean Blum</div>
@@ -371,10 +546,228 @@
                     <h3>Concrete Foundations</h3>
                     <p>The backbone of any structure. We pour high-strength structural concrete built to outlast mid-Missouri weather.</p>
                 </div>
-                <!-- Additional service cards can easily be cloned here -->
+                <div class="card">
+                    <h3>Metal Building Erection</h3>
+                    <p>Pre-engineered steel structures that perform. We handle design coordination, delivery, and complete assembly.</p>
+                </div>
+                <div class="card">
+                    <h3>Site Preparation</h3>
+                    <p>Proper grading and prep work sets every project up for success. No shortcuts, no surprises.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- QUOTE REQUEST FORM SECTION -->
+    <section class="quote-section" id="contact">
+        <div class="container quote-container">
+            <div class="quote-header">
+                <h2>Get Your Quote</h2>
+                <p>Tell us about your project and we'll provide a transparent estimate within 48 hours.</p>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                ✓ Thank you! We'll review your quote request and contact you soon.
+            </div>
+
+            <form id="quoteForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <div class="form-error">First name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <div class="form-error">Last name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="form-error">Please enter a valid email address</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <div class="form-error">Phone number is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Project Address *</label>
+                    <input type="text" id="address" name="address" required>
+                    <div class="form-error">Project address is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label>What services are you interested in? *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="concrete" name="services" value="Concrete Foundations">
+                            <label for="concrete">Concrete Foundations</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="metalBuilding" name="services" value="Metal Building Erection">
+                            <label for="metalBuilding">Metal Building Erection</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sitePrep" name="services" value="Site Preparation">
+                            <label for="sitePrep">Site Preparation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="consultation" name="services" value="Consultation">
+                            <label for="consultation">Consultation</label>
+                        </div>
+                    </div>
+                    <div class="form-error" id="servicesError">Please select at least one service</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectType">Project Type *</label>
+                    <select id="projectType" name="projectType" required>
+                        <option value="">-- Select a project type --</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Agricultural">Agricultural</option>
+                        <option value="Industrial">Industrial</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="form-error">Please select a project type</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Timeline *</label>
+                    <select id="timeline" name="timeline" required>
+                        <option value="">-- Select a timeline --</option>
+                        <option value="ASAP">ASAP (Next 2 weeks)</option>
+                        <option value="1-2 months">1-2 months</option>
+                        <option value="2-3 months">2-3 months</option>
+                        <option value="3+ months">3+ months</option>
+                    </select>
+                    <div class="form-error">Please select a timeline</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="details" placeholder="Tell us about your project, dimensions, scope, budget range, or any specific requirements..."></textarea>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn">Request Quote</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        const form = document.getElementById('quoteForm');
+        const successMessage = document.getElementById('successMessage');
+
+        // Form validation
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+            successMessage.classList.remove('show');
+
+            let isValid = true;
+
+            // Validate text inputs
+            const firstName = document.getElementById('firstName');
+            if (!firstName.value.trim()) {
+                markError(firstName);
+                isValid = false;
+            }
+
+            const lastName = document.getElementById('lastName');
+            if (!lastName.value.trim()) {
+                markError(lastName);
+                isValid = false;
+            }
+
+            const email = document.getElementById('email');
+            if (!email.value.trim() || !isValidEmail(email.value)) {
+                markError(email);
+                isValid = false;
+            }
+
+            const phone = document.getElementById('phone');
+            if (!phone.value.trim()) {
+                markError(phone);
+                isValid = false;
+            }
+
+            const address = document.getElementById('address');
+            if (!address.value.trim()) {
+                markError(address);
+                isValid = false;
+            }
+
+            // Validate checkboxes
+            const serviceCheckboxes = document.querySelectorAll('input[name="services"]:checked');
+            if (serviceCheckboxes.length === 0) {
+                document.getElementById('servicesError').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            const projectType = document.getElementById('projectType');
+            if (!projectType.value) {
+                markError(projectType);
+                isValid = false;
+            }
+
+            const timeline = document.getElementById('timeline');
+            if (!timeline.value) {
+                markError(timeline);
+                isValid = false;
+            }
+
+            // If valid, show success message (in production, submit to server)
+            if (isValid) {
+                // Here you would typically send the form data to a server
+                // For now, we'll just show a success message
+                successMessage.classList.add('show');
+                form.reset();
+
+                // Log form data (for development)
+                const formData = new FormData(form);
+                console.log('Form submitted with data:', Object.fromEntries(formData));
+
+                // Auto-hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }
+        });
+
+        function markError(element) {
+            element.closest('.form-group').classList.add('error');
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Remove error styling on input
+        document.querySelectorAll('input, textarea, select').forEach(field => {
+            field.addEventListener('focus', function() {
+                this.closest('.form-group').classList.remove('error');
+            });
+        });
+    </script>
 
 </body>
 </html>

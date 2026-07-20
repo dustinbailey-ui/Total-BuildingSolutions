@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Building Solutions | Blum Concrete</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #0b1320;
+            --bg-card: #152033;
+            --bg-light: #f8fafc;
+            --accent-orange: #e67e22;
+            --accent-orange-hover: #d35400;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #f8fafc;
+            --text-light-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --shadow-subtle: 0 10px 30px rgba(0,0,0,0.05);
+            --shadow-bold: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .badge-icon {
+            font-size: 1.1rem;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--bg-dark);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            color: var(--accent-orange);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: radial-gradient(circle at top right, #1e2d4a 0%, var(--bg-dark) 100%);
+            color: var(--text-light);
+            padding: 80px 0 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light-muted);
+            margin-bottom: 36px;
+            max-width: 650px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 380px;
+            margin-top: 40px;
+        }
+
+        /* --- PROMISE SECTION --- */
+        .promise-section {
+            padding: 100px 0;
+            background-color: #ffffff;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .promise-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .author-box {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .author-name {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .author-title {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border-radius: var(--radius-lg);
+            position: relative;
+            box-shadow: var(--shadow-bold);
+            overflow: hidden;
+        }
+
+        /* Orange Accent Shadow for Image */
+        .image-placeholder::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 100%;
+            height: 100%;
+            border-bottom: 12px solid var(--accent-orange);
+            border-right: 12px solid var(--accent-orange);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+        }
+
+        /* --- CAPABILITIES SECTION --- */
+        .capabilities-section {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .capabilities-header {
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        .capabilities-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-subtle);
+            border-top: 5px solid var(--accent-orange);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-bold);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 900px) {
+            .promise-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .image-placeholder {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo-group">
+                <span class="logo-main">Total Building Solutions</span>
+                <span class="logo-sub">Blum Concrete</span>
+            </div>
+            <a href="#contact" class="btn">Get a Quote</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>From Slab to Steel—<br>Done Once, Done Right.</h1>
+            <p>Concrete & metal buildings. Zero excuses. We are Sullivan's local crew delivering structural integrity without out-of-town markups or runarounds.</p>
+            
+            <a href="#contact" class="btn" style="font-size: 1.1rem; padding: 16px 36px;">Request Free Site Visit</a>
+
+            <div class="hero-badges">
+                <div class="badge">
+                    <span class="badge-icon">📍</span>
+                    <span>Serving Sullivan & Bourbon Area</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🏗️</span>
+                    <span>Commercial & Residential</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🤝</span>
+                    <span>Family-Owned & Operated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMISE SECTION -->
+    <section class="promise-section">
+        <div class="container promise-grid">
+            <div class="promise-text">
+                <h2 class="section-title">The Total Building Promise</h2>
+                <p>Most contractors give you a ballpark estimate and a two-month delay. We don't operate that way.</p>
+                <p>At Total Building Solutions, we pour foundations that don't crack and erect pre-engineered metal buildings that actually pencil out for your budget. We handle residential slabs, heavy commercial foundations, and complete turnkey metal building packages from estimation to final erection.</p>
+                <p>Because we're a tight, local operation, you aren't dealing with a revolving door of salesmen. You get a single point of contact, transparent hard-numbers, and a crew that shows up when they say they will.</p>
+                
+                <div class="author-box">
+                    <div class="author-name">Sean Blum</div>
+                    <div class="author-title">Managing Member, Total Building Solutions LLC</div>
+                </div>
+            </div>
+
+            <div class="image-placeholder">
+                <!-- Replace with an <img> tag when hosting real media -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPABILITIES SECTION -->
+    <section class="capabilities-section">
+        <div class="container">
+            <div class="capabilities-header">
+                <h2 class="section-title">Our Core Capabilities</h2>
+                <p>Precision concrete flatwork and robust structural steel—managed entirely in-house for absolute quality control.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Concrete Foundations</h3>
+                    <p>The backbone of any structure. We pour high-strength structural concrete built to outlast mid-Missouri weather.</p>
+                </div>
+                <!-- Additional service cards can easily be cloned here -->
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

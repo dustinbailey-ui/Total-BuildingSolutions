@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bcustoms LLC | Let Brad Handle It</title>
+  <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2b2d42; /* Dark industrial blue/grey */
+            --accent-color: #fca311; /* Construction yellow/orange */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+ 
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+ 
+        /* Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+ 
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+ 
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+ 
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+ 
+        nav a:hover {
+            color: var(--accent-color);
+        }
+ 
+        .phone-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, transform 0.2s;
+        }
+ 
+        .phone-btn:hover {
+            background-color: #e59400;
+            transform: scale(1.05);
+        }
+ 
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(43, 45, 66, 0.8), rgba(43, 45, 66, 0.8)), url('https://images.unsplash.com/photo-1504307651254-35680f356f12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+ 
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+ 
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+ 
+        .hero-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+        
+        .hero-btn:hover {
+            background-color: #e59400;
+        }
+ 
+        /* Services Section */
+        #services {
+            padding: 5rem 5%;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+ 
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+ 
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+ 
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-bottom: 4px solid var(--accent-color);
+        }
+ 
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+ 
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+ 
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+ 
+        /* About Section */
+        #about {
+            padding: 5rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+ 
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+ 
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+ 
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+ 
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: -15px 15px 0px var(--accent-color);
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 4px;
+            display: block;
+        }
+ 
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+ 
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+ 
+        .footer-phone {
+            font-size: 2rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+ 
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+ 
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            #about {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-image {
+                box-shadow: 0px 10px 0px var(--accent-color);
+                margin-top: 2rem;
+            }
+        }
+    </style>
+ </head>
+ <body>
+  <header>
+   <div class="logo">
+    Bcustoms <span>LLC</span>
+   </div>
+   <nav>
+    <ul>
+     <li><a href="#services">Services</a></li>
+     <li><a href="#about">About Brad</a></li>
+    </ul>
+   </nav>
+   <a href="tel:6367951514" class="phone-btn">📞 (636) 795-1514</a>
+  </header>
+  <section id="hero">
+   <h1>Let Brad Handle It.</h1>
+   <p>Your one-call solution for hauling, home repairs, concrete, roofing, and everything in between.</p>
+   <a href="tel:6367951514" class="hero-btn">Get a Free Estimate</a>
+  </section>
+  <section id="services">
+   <h2 class="section-title">What We Do</h2>
+   <div class="services-grid">
+    <div class="service-card">
+     <div class="service-icon">🏗️</div>
+     <h3>Hauling &amp; Junk Removal</h3>
+     <p>Fast, reliable removal of scrap, yard debris, and general junk. If it's in your way, we'll haul it away.</p>
+    </div>
+    <div class="service-card">
+     <div class="service-icon">🔧</div>
+     <h3>Handyman &amp; Mechanic</h3>
+     <p>From household electrical and plumbing fixes to custom mechanic work. "Handyman is what I'm called."</p>
+    </div>
+    <div class="service-card">
+     <div class="service-icon">🏠</div>
+     <h3>Roofing &amp; Concrete</h3>
+     <p>Heavy-duty exterior work including roofing repairs, tear-offs, and custom concrete pouring and finishing.</p>
+    </div>
+    <div class="service-card">
+     <div class="service-icon">🌳</div>
+     <h3>Yard &amp; Tree Services</h3>
+     <p>Complete property maintenance including tree cutting, landscaping, and regular mowing services.</p>
+    </div>
+   </div>
+  </section>
+  <section id="about">
+   <div class="about-text">
+    <h2>About Bcustoms LLC</h2>
+    <p>Locally owned and operated, Bcustoms LLC is built on hard work and doing the job right the first time. I'm Brad, and whether you need an entire property cleaned out, a roof patched up, concrete poured, or just some mechanic work done, I'm your guy.</p>
+    <p>I don't just do one thing—I cover electrical, plumbing, hauling, and everything in between. Stop calling five different contractors for your property needs. Make one call and <strong>let Brad handle it</strong>.</p>
+   </div>
+   <div class="about-image">
+    <!-- Placeholder for Brad's photo (using a generic high-quality builder image, user can swap this out easily) -->
+    <img src="https://images.unsplash.com/photo-1541888081-01132712be13?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Brad - Bcustoms LLC Handyman">
+   </div>
+  </section>
+  <footer>
+   <div class="footer-content">
+    <h2>Ready to get started?</h2>
+    <p>Call or text for a fast, free quote on your next project.</p>
+    <a href="tel:6367951514" class="footer-phone">(636) 795-1514</a>
+   </div>
+   <div class="copyright">© 2026 Bcustoms LLC. All rights reserved.</div>
+  </footer>
+ </body>
+</html>
